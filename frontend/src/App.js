@@ -13,7 +13,6 @@ export const App = () => {
         <Container>
           <Outlet />
         </Container>
-        <p className="font-italic">Haha</p>
         <Footer />
       </main>
     </>
