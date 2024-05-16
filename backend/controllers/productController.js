@@ -1,5 +1,5 @@
-import asyncHandler from "../middleware/asyncHandler.js";
-import Product from "../models/productModel.js";
+const asyncHandler = require("../middleware/asyncHandler.js");
+const Product = require("../models/productModel.js");
 
 const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({});
@@ -17,4 +17,4 @@ const getProductById = asyncHandler(async (req, res) => {
   throw new Error("Resource not found");
 });
 
-export { getProducts, getProductById };
+module.exports = { getProducts, getProductById };

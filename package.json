@@ -2,7 +2,6 @@
   "name": "mern-ecommerce",
   "version": "1.0.0",
   "description": "eCommerce app built with the MERN stack",
-  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -17,7 +16,9 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.3"
   },
   "devDependencies": {

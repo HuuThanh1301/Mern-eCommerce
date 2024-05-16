@@ -5,7 +5,7 @@ const notFound = (req, res, next) => {
 };
 
 const errorHandler = (err, req, res, next) => {
-  let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  let statusCode = res.statusCode ? res.statusCode : 500;
   let message = err.message;
 
   // Check for Mongoose bad ObjectId
@@ -16,7 +16,9 @@ const errorHandler = (err, req, res, next) => {
 
   res.status(statusCode).json({
     message: message,
+    stack: err.stack,
   });
 };
 
-export { notFound, errorHandler };
+exports.notFound = notFound;
+exports.errorHandler = errorHandler;

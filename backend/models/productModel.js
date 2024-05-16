@@ -1,6 +1,4 @@
-import { timeStamp } from "console";
-import mongoose from "mongoose";
-import { type } from "os";
+const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema(
   {
@@ -81,5 +79,5 @@ const productSechema = new mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product", productSechema);
-export default Product;
+module.exports = mongoose.model("Product", productSechema);
+
