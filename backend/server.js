@@ -7,6 +7,7 @@ dotenv.config();
 const connectDB = require("./config/db.js");
 const productRoutes = require("./routes/productRoutes.js");
 const userRoutes = require("./routes/userRoutes.js");
+const orderRoutes = require("./routes/orderRoutes.js");
 const port = process.env.PORT || 5000;
 
 connectDB(); // Connect to MongoDB
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

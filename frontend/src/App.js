@@ -14,9 +14,9 @@ export const App = () => {
         <Container>
           <Outlet />
         </Container>
-        <Footer />
         <ToastContainer />
       </main>
+      <Footer />
     </>
   );
 };
