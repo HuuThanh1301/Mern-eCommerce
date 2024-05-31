@@ -9,7 +9,7 @@ const {
   getTopProducts,
 } = require("../controllers/productController.js");
 const { protect, admin } = require("../middleware/authMiddleware.js");
-const { checkObjectId } = require("../middleware/checkObjectId.js");
+const checkObjectId = require("../middleware/checkObjectId.js");
 
 const router = express.Router();
 
