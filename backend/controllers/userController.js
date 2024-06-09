@@ -67,7 +67,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 
 // @desc Get user profile
 // @route GET /api/users/profile
-// @access Public
+// @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 

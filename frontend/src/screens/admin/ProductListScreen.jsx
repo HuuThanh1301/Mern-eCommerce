@@ -18,8 +18,8 @@ const ProductListScreen = () => {
   const { data, isLoading, error, refetch } = useGetProductsQuery({
     pageNumber,
   });
-  const [createProduct, { isLoading: loadingCreate }] =
-    useCreateProductMutation();
+  // const [createProduct, { isLoading: loadingCreate }] =
+  //   useCreateProductMutation();
 
   const [deleteProduct, { isLoading: loadingDelete }] =
     useDeleteProductMutation();
@@ -36,16 +36,16 @@ const ProductListScreen = () => {
     }
   };
 
-  const createProductHandler = async () => {
-    if (window.confirm("Are you sure you want to create a new product?")) {
-      try {
-        await createProduct();
-        refetch();
-      } catch (err) {
-        toast.error(err?.data?.message || err.error);
-      }
-    }
-  };
+  // const createProductHandler = async () => {
+  //   if (window.confirm("Are you sure you want to create a new product?")) {
+  //     try {
+  //       await createProduct();
+  //       refetch();
+  //     } catch (err) {
+  //       toast.error(err?.data?.message || err.error);
+  //     }
+  //   }
+  // };
   return (
     <>
       <Row className="align-items-center">
@@ -53,12 +53,15 @@ const ProductListScreen = () => {
           <h1>Products</h1>
         </Col>
         <Col className="text-end">
-          <Button className="btn-sm m-3" onClick={createProductHandler}>
+        <LinkContainer to="/admin/product/create">
+        <Button className="btn-sm m-3">
             <FaEdit /> Create Product
           </Button>
+        </LinkContainer>
+
         </Col>
       </Row>
-      {loadingCreate && <Loader />}
+      {/* {loadingCreate && <Loader />} */}
       {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />

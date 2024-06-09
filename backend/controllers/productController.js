@@ -31,20 +31,41 @@ const getProductById = asyncHandler(async (req, res) => {
 //@route  POST /api/products
 //@access  Private/Admin
 const createProduct = asyncHandler(async (req, res) => {
-  const product = new Product({
-    name: "Sample name",
-    price: 0,
-    user: req.user._id,
-    image: "images/sample.jpg",
-    brand: "Sample brand",
-    category: "Sample category",
-    countInStock: 0,
-    numReviews: 0,
-    description: "Sample description",
-  });
+  // const product = new Product({
+  //   name: "Sample name",
+  //   price: 0,
+  //   user: req.user._id,
+  //   image: "images/sample.jpg",
+  //   brand: "Sample brand",
+  //   category: "Sample category",
+  //   countInStock: 0,
+  //   numReviews: 0,
+  //   description: "Sample description",
+  // });
 
-  const createdProduct = await product.save();
-  res.status(201).json(createdProduct);
+  // const createdProduct = await product.save();
+  // res.status(201).json(createdProduct);
+
+  const { name, price, description, image, brand, category, countInStock } =
+    req.body;
+
+  const product = Product.create({
+    name,
+    price,
+    description,
+    image,
+    brand,
+    category,
+    countInStock,
+    numReviews: 0,
+    user: req.user._id,
+  });
+  if (product) {
+    res.status(201).json({ product });
+  } else {
+    res.status(400);
+    throw new Error("Cannot create product");
+  }
 });
 
 //@desc Update a product
