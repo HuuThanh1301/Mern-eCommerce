@@ -49,7 +49,7 @@ const products = [
   },
   {
     name: "Intel 14th Gen Core i5-14600KF",
-    image: "/images/i5-14600KF.png",
+    image: "/images/i5-14600kf.png",
     description:
       "Delivering Australia-wide, our online tech hub rapidly dispatches authentic, local stock like the highly sought-after Intel 14th Gen Core i5-14600KF Processor. This power-packed processor boasts a clock speed of up to 5.3GHz, 14 cores and 20 threads, ensuring speedy, seamless operation. Invigorate your tech experience with our prompt delivery service today.",
     brand: "Intel",
